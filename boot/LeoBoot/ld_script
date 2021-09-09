@@ -1,0 +1,13 @@
+ENTRY(boot)
+
+SECTIONS
+{
+	. = 0x8600;
+	.text : { *(.text) }
+	. = 0x18600;
+	.data : { *(.data) }
+	. = 0x20600;
+	.rodata : { *(.rodata) }
+	. = 0x28600;
+	.bss : { *(.bss) }
+}

@@ -1,0 +1,8 @@
+bit 7: bootable
+bit 6: swap
+bit 5: raw
+bit 4: damaged
+bit 3: hidden
+bit 2: locked
+bit 1: raid
+bit 0: present
