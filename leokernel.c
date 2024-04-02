@@ -21,6 +21,7 @@
 #include <tty/include/term.h>
 #include <mm/include/kmalloc.h>
 #include <fs/ramfs/include/ramfs.h>
+#include <user/include/user_mode.h>
 
 void kmain(struct leokernel_boot_params bootp) {
     if (!check_boot_param(&bootp)) {
@@ -42,8 +43,10 @@ void kmain(struct leokernel_boot_params bootp) {
     leokernel_init_subsystem(init_pci(), "configuring PCI");
     leokernel_init_subsystem(init_ramfs(), "initializing ramfs");
     leokernel_init_subsystem(init_files(), "initializing file subsystem");
+    leokernel_init_subsystem(init_um(), "initializing user mode");
     init_keyboard();
-    init_terminal();
+    enter_um();
+    //init_terminal();
     while(true);
 	sys_hlt();
 }

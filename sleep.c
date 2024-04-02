@@ -6,7 +6,10 @@
 bool sleep_in_progress = false;
 extern bool pit_ready; //defined in pit.c
 
-//sleep ms milliseconds (uses PIT)
+/*
+Sleep ms milliseconds (uses PIT).
+Implemented with busy waiting.
+*/
 bool sleep(uint16_t ms) {
     if (!pit_ready) {
         return false;
